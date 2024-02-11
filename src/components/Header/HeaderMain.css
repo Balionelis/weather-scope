@@ -1,0 +1,30 @@
+.header-main {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background-color: #005986;
+}
+
+#scope-icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-left: 15px;
+    margin-top: 2px;
+    filter: brightness(0) saturate(100%) invert(99%) sepia(100%) saturate(0%) hue-rotate(272deg) brightness(108%) contrast(101%);
+}
+
+#search-bar {
+    position: absolute;
+    margin-left: 45rem;
+    margin-top: 1.1rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    text-align: center;
+    background-color: #327b9e;
+    color: #fff;
+}
+#search-bar::placeholder {
+  color: #fff;
+}
