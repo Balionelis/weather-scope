@@ -8,7 +8,7 @@ export default function HeaderMain() {
             <a href="#">
               <img id='scope-icon' src={scope}/>
             </a>
-            <input id='search-bar' type='text' placeholder='Search for a city'/>
+            {/* <input id='search-bar' type='text' placeholder='Search for a city'/> */}
         </header>
     );
 }
