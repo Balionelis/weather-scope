@@ -2,19 +2,26 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import './ApiFetching.css';
 
-async function CheckPerms() {
-  const permissionStatus = await navigator?.permissions?.query({name: 'geolocation'});
-  const hasPermission = permissionStatus?.state;
-  console.log('Geolocation permission status:', hasPermission);
-  return hasPermission;
-}
+function CheckPerms() {
+  const [permissionStatus, setPermissionStatus] = useState(null);
 
-(async () => {
-  const hasPermission = await CheckPerms();
-  if (hasPermission === 'denied') {
-    alert('Please enable location services to view the weather');
-  }
-})();
+  useEffect(() => {
+    if (navigator?.permissions) {
+      navigator.permissions.query({name: 'geolocation'})
+        .then(status => {
+          setPermissionStatus(status.state);
+          if (status.state === 'denied') {
+            alert('Please enable location services to view the weather');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  }, []);
+
+  return permissionStatus;
+}
 
 function CordFetch() {
   const [lat, setLat] = useState(null);
