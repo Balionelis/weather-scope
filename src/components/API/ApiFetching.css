@@ -18,10 +18,10 @@
     z-index: 1000;
     border-radius: 10px;
     transition: box-shadow 0.5s ease;
-    box-shadow: 60px -16px #01202F;
+    box-shadow: 10px 10px #01202F;
 }
 .temp:hover{
-    box-shadow: 10px 10px #01202F;
+    box-shadow: 10px -10px #01202F;
     cursor: pointer;
 }
 

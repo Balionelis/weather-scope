@@ -2,6 +2,20 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import './ApiFetching.css';
 
+async function CheckPerms() {
+  const permissionStatus = await navigator?.permissions?.query({name: 'geolocation'});
+  const hasPermission = permissionStatus?.state;
+  console.log('Geolocation permission status:', hasPermission);
+  return hasPermission;
+}
+
+(async () => {
+  const hasPermission = await CheckPerms();
+  if (hasPermission === 'denied') {
+    alert('Please enable location services to view the weather');
+  }
+})();
+
 function CordFetch() {
   const [lat, setLat] = useState(null);
   const [long, setLong] = useState(null);
@@ -85,31 +99,3 @@ export default function Weather() {
     </div>
   );
 }
-
-
-
-
-// function CordFetch() {
-
-//     const [lat, setLat] = useState([]);
-//     const [long, setLong] = useState([]);
-  
-//     useEffect(() => {
-//       navigator.geolocation.getCurrentPosition(function(position) {
-//         setLat(position.coords.latitude);
-//         setLong(position.coords.longitude);
-//       });
-  
-//       console.log("Latitude is:", lat)
-//       console.log("Longitude is:", long)
-//     }, [lat, long]);
-// };
-
-// export default function ApiFetching() {
-//     CordFetch()
-//     return (
-//         <div>
-//             <h1 id="lat"></h1>
-//         </div>
-//     );
-// }
