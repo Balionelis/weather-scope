@@ -42,3 +42,21 @@
     width: 300px;
     height: 100px;
 } */
+
+/* Mobile Design */
+@media screen and (max-width: 800px) {
+    .temp {
+        width: 250px;
+        height: 150px;
+        margin-top: -25px;
+        margin-left: -130px;
+    }
+    .info h2 {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .info p {
+        font-size: 15px;
+        margin-left: 10px;
+    }
+}

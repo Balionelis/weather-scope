@@ -19,7 +19,7 @@ export default function HeaderMain() {
   }, []);
 
   async function getLatLng(city) {
-    const apiKey = 'AIzaSyD3iWePy_uZaDbSHmY2rvxQzrkBduzgkqk'; // Replace with your Google Maps API key
+    const apiKey = 'AIzaSyD3iWePy_uZaDbSHmY2rvxQzrkBduzgkqk';
     const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(city)}&key=${apiKey}`);
     const data = await response.json();
     if (data.status === 'OK') {
